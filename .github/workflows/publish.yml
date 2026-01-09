@@ -1,27 +1,43 @@
 
 name: Deploy site
+
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  pages: write        # Pages へのデプロイに必須
+  id-token: write     # OIDC によるデプロイ検証に必須
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      # Quarto をセットアップ（必要に応じて R や Python のセットアップも追加可）
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
       - name: Build site
         run: |
-          # ここでサイトをビルド
-          quarto render
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+          quarto render   # 出力は _site 配下
+
+      # 生成物を Pages 用アーティファクトにアップロード（v3）
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      pages: write
-      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Pages へデプロイ（v4）
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        id: deployment
+        uses: actions/deploy-pages@v4
