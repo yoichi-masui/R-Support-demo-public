@@ -1,0 +1,65 @@
+
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "R Support (Internal)"
+  description: "社内R-Support ポータル（Quarto サイト）"
+  site-url: https://<your-org-or-user>.github.io/<your-repo>  # ← あとで置換
+  repo-url: https://github.com/<your-org-or-user>/<your-repo> # ← あとで置換
+  repo-actions: [issue, edit, source]
+  favicon: assets/favicon.svg
+  image: assets/og-image.png
+  navbar:
+    logo: assets/logo.svg
+    logo-alt: "R Support"
+    right:
+      - text: "お知らせ"
+        href: index.qmd#お知らせ
+      - text: "クイックスタート"
+        href: index.qmd#クイックスタート
+      - text: "標準・テンプレート"
+        menu:
+          - text: "データ標準（CDISC/ADaM/SEND）"
+            href: index.qmd#データ標準
+          - text: "帳票テンプレート（rtables）"
+            href: index.qmd#帳票テンプレート
+          - text: "Quarto テンプレート"
+            href: index.qmd#quarto-テンプレート
+      - text: "FAQ"
+        href: index.qmd#faq
+      - text: "相談窓口"
+        href: index.qmd#相談窓口
+  sidebar:
+    style: "floating"
+    search: true
+  page-footer:
+    left: "© 2026 R Support Team"
+    right:
+      - icon: github
+        href: https://github.com/<your-org-or-user>/<your-repo>
+      - text: "お問い合わせ"
+        href: index.qmd#相談窓口
+
+lang: ja
+freeze: auto
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    toc-depth: 3
+    toc-expand: true
+    code-copy: true
+    code-overflow: wrap
+    smooth-scroll: true
+    link-external-newwindow: true
+    number-sections: false
+    anchor-sections: true
+
+# 拡張（必要に応じて）
+filters:
+  - quarto
