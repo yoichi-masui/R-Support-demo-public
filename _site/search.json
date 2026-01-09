@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R-Support トップページ",
+    "section": "",
+    "text": "社内の R 利用を素早く・安全に・標準に沿って進めるためのポータルです。\nQuarto による再現可能なドキュメント、rtables による帳票、{admiral} による ADaM 派生を中心に支援します。"
+  },
+  {
+    "objectID": "index.html#お知らせ",
+    "href": "index.html#お知らせ",
+    "title": "R-Support トップページ",
+    "section": "お知らせ",
+    "text": "お知らせ\n\n社内 R 4.3.2 → 4.4.0 ロールアウト予定（2026-02）：互換性確認を実施中。影響範囲と回避策は FAQ を参照。\n\nQuarto 1.6 へ更新：PDF/HTML 複合出力テンプレートを整備中。\n\nSOP/スタイルガイド：データフレーム名は小文字、変数名は大文字（社内基準）。テンプレートは下記「標準・テンプレート」を参照。"
+  },
+  {
+    "objectID": "index.html#クイックスタート",
+    "href": "index.html#クイックスタート",
+    "title": "R-Support トップページ",
+    "section": "クイックスタート",
+    "text": "クイックスタート\n\n1. 開発環境\n\nR（社内配布版 / or Posit/RStudio）\nQuarto（quarto --version で確認）\n推奨パッケージ：tidyverse, rtables, admiral, lubridate, janitor\n\n\nR の動作確認（簡易）\n#| message: false # 基本パッケージの確認 pkgs &lt;- c(“rtables”, “admiral”, “dplyr”, “tidyr”, “lubridate”) installed &lt;- pkgs[pkgs %in% rownames(installed.packages())] data.frame(Package = pkgs, Installed = pkgs %in% installed)"
+  }
+]
