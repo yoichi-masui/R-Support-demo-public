@@ -1,0 +1,47 @@
+
+---
+title: "R-Support トップページ"
+subtitle: "Clinical Data Science / Stat Programming"
+format:
+  html:
+    # ページ固有の設定は必要に応じて
+    toc: true
+    toc-location: left
+    code-fold: false
+---
+
+::: {.hero}
+# R-Support へようこそ
+社内の R 利用を素早く・安全に・標準に沿って進めるためのポータルです。  
+Quarto による再現可能なドキュメント、rtables による帳票、{admiral} による ADaM 派生を中心に支援します。
+:::
+
+::: {.callout-note}
+**更新履歴（最新3件）**  
+- 2026-01-09: トップページ（Quarto）初版を公開  
+- 2026-01-05: rtables シフトテーブル・テンプレート更新（%表示対応）  
+- 2025-12-20: {admiral} 日付時刻ユーティリティの教材追加（ADAE 例）
+:::
+
+## お知らせ {#お知らせ}
+
+- **社内 R 4.3.2 → 4.4.0 ロールアウト予定**（2026-02）：互換性確認を実施中。影響範囲と回避策は [FAQ](#faq) を参照。  
+- **Quarto 1.6 へ更新**：PDF/HTML 複合出力テンプレートを整備中。  
+- **SOP/スタイルガイド**：データフレーム名は小文字、変数名は大文字（社内基準）。テンプレートは下記「標準・テンプレート」を参照。
+
+---
+
+## クイックスタート {#クイックスタート}
+
+### 1. 開発環境
+- R（社内配布版 / or Posit/RStudio）
+- Quarto（`quarto --version` で確認）
+- 推奨パッケージ：`tidyverse`, `rtables`, `admiral`, `lubridate`, `janitor`
+
+#### R の動作確認（簡易）
+```{r}
+#| message: false
+# 基本パッケージの確認
+pkgs <- c("rtables", "admiral", "dplyr", "tidyr", "lubridate")
+installed <- pkgs[pkgs %in% rownames(installed.packages())]
+data.frame(Package = pkgs, Installed = pkgs %in% installed)
